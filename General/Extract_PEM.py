@@ -9,8 +9,11 @@ rsa_key=RSA.import_key(pem_key)
 
 #uncomment whichever key is required
 
-#public_key=rsa.n
-#print(public_key)
+#public_key=rsa_key.n
+#print("public_key:",public_key)
 
 #private_key=rsa_key.d
-#print(private_key)
+#print("private_key:",private_key)
+
+exponent=rsa_key.e
+print("exponent:",exponent)
