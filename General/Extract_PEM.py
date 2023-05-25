@@ -1,3 +1,5 @@
+#pip install PyCryptodome
+
 from Crypto.PublicKey import RSA
 from Crypto.IO import PEM
 
