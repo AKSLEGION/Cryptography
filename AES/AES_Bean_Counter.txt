@@ -1,0 +1,18 @@
+from Crypto.Util.number import *
+import requests
+
+encrypt_url = "https://aes.cryptohack.org/bean_counter/encrypt"
+
+encrypted = eval(requests.get(encrypt_url).text.strip())["encrypted"]
+encrypted = [ int(encrypted[i:i+32],16) for i in range(0,len(encrypted),32) ]
+
+png_format = 0x89504e470d0a1a0a0000000d49484452
+xor_key = png_format ^ encrypted[0]
+
+f = open("aes.png",'wb')
+for i in encrypted:
+	x = long_to_bytes(xor_key ^ i)
+	x = b'\x00'*((-len(x))%16) + x
+	f.write(x)
+	
+f.close()
