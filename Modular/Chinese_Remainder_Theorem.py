@@ -31,4 +31,4 @@ def findMinX(num, rem, k) :
 num = [3, 4, 5]
 rem = [2, 3, 1]
 k = len(num)
-print( "x is " , findMinX(num, rem, k))
+#print( "x is " , findMinX(num, rem, k))
